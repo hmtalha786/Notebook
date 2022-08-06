@@ -1,8 +1,8 @@
 const express = require('express');
 const User = require('../models/User');
 const bodyParser = require("body-parser");
-const { body, validationResult } = require('express-validator');
 const router = express.Router();
+const { body, validationResult } = require('express-validator');
 
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(express.json());
@@ -23,10 +23,9 @@ router.post('/', [
         email: req.body.email,
     }).then(user => res.json(user))
         .catch(err => {
-            console.log(err)
-            res.json({ error: 'Please enter a unique value for email', message: err.message })
+            console.log(err);
+            res.json({ error: 'Please enter a unique value for email', message: err.message });
         })
-
 })
 
 module.exports = router;
