@@ -2,10 +2,9 @@ import NoteContext from "./noteContext";
 import { useState } from "react";
 
 const NoteState = (props) => {
-    
     const notesInitial = [
         {
-            "_id": "61322f195453781a8ca81d0e06",
+            "_id": "61322f195153781a8ca8d0e06",
             "user": "6131dc5e3e4037cd4734a066",
             "title": "My Title",
             "description": "Please wake up early",
@@ -14,7 +13,7 @@ const NoteState = (props) => {
             "__v": 0
         },
         {
-            "_id": "613212f195453781a8ca8d0e08",
+            "_id": "61322f195531781a8ca8d0e08",
             "user": "6131dc5e3e4037cd4734a066",
             "title": "My Title",
             "description": "Please wake up early",
@@ -23,7 +22,7 @@ const NoteState = (props) => {
             "__v": 0
         },
         {
-            "_id": "61322f419553781a8ca8d01e08",
+            "_id": "61322f19553781a8ca8d0e081",
             "user": "6131dc5e3e4037cd4734a066",
             "title": "My Title",
             "description": "Please wake up early",
@@ -32,7 +31,7 @@ const NoteState = (props) => {
             "__v": 0
         },
         {
-            "_id": "61322f19553781a8ca8d0e108",
+            "_id": "61322f19553781a8ca8d0e082",
             "user": "6131dc5e3e4037cd4734a066",
             "title": "My Title",
             "description": "Please wake up early",
@@ -41,7 +40,7 @@ const NoteState = (props) => {
             "__v": 0
         },
         {
-            "_id": "613122f19553781a84ca8d0e08",
+            "_id": "61322f195537812a8ca8d0e08",
             "user": "6131dc5e3e4037cd4734a066",
             "title": "My Title",
             "description": "Please wake up early",
@@ -50,7 +49,7 @@ const NoteState = (props) => {
             "__v": 0
         },
         {
-            "_id": "61322f19553781a81ca8d0e08",
+            "_id": "613222f19553781a8ca8d0e08",
             "user": "6131dc5e3e4037cd4734a066",
             "title": "My Title",
             "description": "Please wake up early",
@@ -59,7 +58,7 @@ const NoteState = (props) => {
             "__v": 0
         },
         {
-            "_id": "61322f1195537481a8ca8d0e08",
+            "_id": "61322f119553781a8ca8d0e08",
             "user": "6131dc5e3e4037cd4734a066",
             "title": "My Title",
             "description": "Please wake up early",
@@ -69,10 +68,27 @@ const NoteState = (props) => {
         },
     ]
 
-    const [notes, setNotes] = useState(notesInitial);
+    const [notes, setNotes] = useState(notesInitial)
+
+
+    // Add a Note
+    const addNote = (title, description, tag) => {
+        // TODO: Backend API Call
+        console.log("Adding a new note");
+        const note = {
+            "_id": "61322f119553781a8c56a8d0e08",
+            "user": "6131dc5e3e4037cd4734a0664",
+            "title": title,
+            "description": description,
+            "tag": tag,
+            "date": "2021-09-03T14:20:09.668Z",
+            "__v": 0
+        };
+        setNotes(notes.concat(note));
+    }
 
     return (
-        <NoteContext.Provider value={{ notes, setNotes }}>
+        <NoteContext.Provider value={{ notes, addNote }}>
             {props.children}
         </NoteContext.Provider>
     )
