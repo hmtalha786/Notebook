@@ -14,5 +14,5 @@ app.use('/api/notes', require('./routes/notes'));
 
 // Server Running on Port 3000
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+    console.log(`Notebook app listening at http://localhost:${port}`)
 })
